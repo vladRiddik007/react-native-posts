@@ -1,5 +1,7 @@
 import { Action } from "redux";
 import { ThunkAction } from "redux-thunk";
+import { Post } from "../../types";
+import { ApiGet } from "../../utils/api";
 import { RootState } from "../rootReducer";
 import {
   GET_POSTS_ERROR,
@@ -7,22 +9,15 @@ import {
   GET_POSTS_SUCCESS,
   DispatchType,
   ActionTypes,
-  Post,
 } from "./types";
 
-const headers = { "Content-Type": "application/json" };
-
-export const postsGet = (): ThunkAction<
-  void,
-  RootState,
-  unknown,
-  Action<string>
-> => async (dispatch) => {
+export const postsGet = (
+  params: string
+): ThunkAction<void, RootState, unknown, Action<string>> => async (
+  dispatch
+) => {
   dispatch(postsStarted());
-  return await fetch(
-    "http://my-json-server.typicode.com/orlovskyalex/jellyfish-fake-rest-server/posts",
-    { headers }
-  )
+  return await ApiGet(`${params}`)
     .then(async (response) => {
       const data = await response.json();
       dispatch(postsSuccess(data));

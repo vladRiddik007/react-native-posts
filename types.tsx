@@ -1,19 +1,25 @@
 export type RootStackParamList = {
   Home: undefined;
-  Post: undefined;
+  Post: { item: Post };
   Profile: undefined;
   NotFound: undefined;
 };
 
-export type BottomTabParamList = {
-  TabOne: undefined;
-  TabTwo: undefined;
-};
+export type Comment = {
+  id: string;
+  body: string;
+  author: string;
+  post: string;
+}
 
-export type TabOneParamList = {
-  TabOneScreen: undefined;
-};
+export type Post = {
+  id: string;
+  title: string;
+  body: string;
+  author: string;
+}
 
-export type TabTwoParamList = {
-  TabTwoScreen: undefined;
-};
+export type User = {
+  id: string;
+  username: string;
+}

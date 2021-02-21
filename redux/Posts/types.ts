@@ -1,14 +1,9 @@
-export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
+import { Post } from "../../types";
 
 export const GET_POSTS_STARTED = "GET_POSTS_STARTED";
 export const GET_POSTS_SUCCESS = "GET_POSTS_SUCCESS";
 export const GET_POSTS_ERROR = "GET_POSTS_ERROR";
-export interface Post {
-  id: string;
-  title: string;
-  body: string;
-  author: string;
-}
+
 export interface postsError {
   type: typeof GET_POSTS_ERROR;
 }

@@ -1,9 +1,9 @@
+import { Post } from "../../types";
 import {
   ActionTypes,
   GET_POSTS_ERROR,
   GET_POSTS_STARTED,
   GET_POSTS_SUCCESS,
-  Post,
 } from "./types";
 
 interface IState {
